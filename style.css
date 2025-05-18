@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  background: linear-gradient(to bottom, #4f5c66, #1c1e20);
+  color: white;
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.sidebar h1 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.sidebar nav a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s;
+}
+
+.sidebar nav a:hover {
+  color: white;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.content h2 {
+  font-weight: normal;
+  color: #555;
+}
