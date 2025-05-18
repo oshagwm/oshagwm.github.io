@@ -1,77 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me - Will O'Shaughnessy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: url('images/background.png') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      padding: 1.5rem 0;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a[href="about.html"] {
-      color: #f97316;
-    }
-
-    .about-section {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 4rem 2rem;
-      max-width: 800px;
-      margin: 5rem auto;
-      text-align: center;
-    }
-
-    .about-section h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-section p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="#resume">Resume</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="logo.png" alt="Profile Picture" class="profile-pic" />
+      <h1>William O'Shaughnessy</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="resume.html">Resume</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </aside>
 
-  <section class="about-section">
-    <h1>About Me</h1>
-    <p>
-      I grew up in Rome, NY and now live out in Ava. After graduating from RFA in 2022, I got my associate’s degree at MVCC in 2024 and I’m currently working on my bachelor’s in Network Computer Security at SUNY Poly — aiming to graduate in 2026.<br><br>
-      I’m into pretty much anything involving computers — whether it’s gaming, photo and video editing, or just digging into tech. When I’m not in front of a screen, you can probably find me out on the golf course, diving into some random bit of history, or blasting '90s country music.
-    </p>
-  </section>
+    <main class="content">
+      <section>
+        <h2>About Me</h2>
+        <p>
+          I grew up in Rome, NY and now live out in Ava. After graduating from RFA in 2022, 
+          I got my associate’s degree at MVCC in 2024 and I’m currently working on my bachelor’s 
+          in Network Computer Security at SUNY Poly — aiming to graduate in 2026.
+        </p>
+        <p>
+          I’m into pretty much anything involving computers — whether it’s gaming, photo and 
+          video editing, or just digging into tech. When I’m not in front of a screen, I might 
+          be on a golf course, diving into some random bit of history, or blasting '90s country music.
+        </p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
