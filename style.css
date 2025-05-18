@@ -60,12 +60,13 @@ body {
 }
 
 .social-icons a img {
-  width: 28px;
   height: 28px;
   margin: 0 5px;
   vertical-align: middle;
   transition: transform 0.2s ease;
 }
+
+
 
 .social-icons a:hover img {
   transform: scale(1.1);
