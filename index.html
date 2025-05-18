@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: url('images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    .hero p {
+      display: none;
+    }
+
+    .socials {
+      margin: 1.5rem 0;
+    }
+
+    .socials i {
+      margin: 0 0.5rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .buttons {
+      margin-top: 1.5rem;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0 0.5rem;
+      border-radius: 30px;
+      border: 2px solid white;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+    }
+
+    .buttons a.download {
+      background-color: #f97316;
+      border-color: #f97316;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h1>I'm Will O'Shaughnessy.</h1>
+
+    <div class="socials">
+      <i class="fab fa-github"></i>
+      <i class="fas fa-layer-group"></i>
+      <i class="fab fa-linkedin"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-twitter"></i>
+    </div>
+
+    <div class="buttons">
+      <a href="#resume" class="download">Resume <i class="fas fa-download"></i></a>
+      <a href="#contact">Contact</a>
+    </div>
+  </section>
+</body>
+</html>
