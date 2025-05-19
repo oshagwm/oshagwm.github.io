@@ -121,3 +121,47 @@ body {
   margin-top: 10px;
   cursor: pointer;
 }
+
+/* Dropdown Project Menu */
+.dropdown {
+  position: relative;
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.dropbtn {
+  color: #ccc;
+  padding: 8px 0;
+  display: block;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dropbtn:hover {
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  background-color: #2a2d30;
+  padding-left: 10px;
+}
+
+.dropdown-content a {
+  padding: 6px 0;
+  color: #bbb;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+
+.dropdown-content a:hover {
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
