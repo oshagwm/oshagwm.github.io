@@ -1,3 +1,77 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  background: linear-gradient(to bottom, #4f5c66, #1c1e20);
+  color: white;
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.sidebar h1 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.sidebar nav a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s;
+}
+
+.sidebar nav a:hover {
+  color: white;
+}
+
+/* Social Media Icons */
+.social-icons {
+  margin: 15px 0;
+}
+
+.social-icons a img {
+  height: 28px;
+  margin: 0 5px;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+
+/* Main content styling */
+.content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.content h2 {
+  font-weight: normal;
+  color: #555;
+}
+
 /* Project Card Styling */
 .project {
   background-color: #f8f8f8;
@@ -12,7 +86,7 @@
   color: #333;
 }
 
-/* Before-After Slider Container */
+/* Before-After Slider */
 .before-after-container {
   margin-top: 15px;
 }
