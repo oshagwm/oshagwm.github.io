@@ -1,73 +1,49 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  height: 100vh;
-}
-
-.container {
-  display: flex;
-  width: 100%;
-}
-
-.sidebar {
-  background: linear-gradient(to bottom, #4f5c66, #1c1e20);
-  color: white;
-  width: 250px;
-  padding: 20px;
-  text-align: center;
-}
-
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.sidebar h1 {
-  font-size: 1.2rem;
+/* Project Card Styling */
+.project {
+  background-color: #f8f8f8;
+  padding: 15px 20px;
   margin-bottom: 20px;
+  border-left: 4px solid #4f5c66;
+  border-radius: 6px;
 }
 
-.sidebar nav a {
-  display: block;
-  color: #ccc;
-  text-decoration: none;
-  padding: 8px 0;
-  transition: color 0.3s;
-}
-
-.sidebar nav a:hover {
-  color: white;
-}
-
-.content {
-  flex-grow: 1;
-  padding: 40px;
-  background-color: #ffffff;
+.project h3 {
+  margin-top: 0;
   color: #333;
 }
 
-.content h2 {
-  font-weight: normal;
-  color: #555;
+/* Before-After Slider Container */
+.before-after-container {
+  margin-top: 15px;
 }
 
-.social-icons {
-  margin: 15px 0;
+.ba-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.social-icons a img {
-  height: 28px;
-  margin: 0 5px;
-  vertical-align: middle;
-  transition: transform 0.2s ease;
+.ba-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
+.ba-img.after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.2s ease;
+  pointer-events: none;
+}
 
-
-.social-icons a:hover img {
-  transform: scale(1.1);
+.slider {
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
 }
