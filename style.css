@@ -165,3 +165,54 @@ body {
   display: flex;
 }
 
+.sidebar nav a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s;
+}
+
+.dropdown {
+  display: block;
+  margin-top: 8px;
+}
+
+.dropbtn {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  background-color: #2a2d30;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.dropdown-content a {
+  padding: 6px 0;
+  color: #bbb;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+
+.dropdown-content a:hover {
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+
