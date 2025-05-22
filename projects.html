@@ -27,13 +27,12 @@
         <a href="about.html">About Me</a>
         <a href="resume.html">Resume</a>
         <div class="dropdown">
-  <span class="dropbtn">Projects ▾</span>
-  <div class="dropdown-content">
-    <a href="cyber.html">Cybersecurity</a>
-    <a href="projects.html">Photoshop</a>
-  </div>
-</div>
-
+          <span class="dropbtn">Projects ▾</span>
+          <div class="dropdown-content">
+            <a href="cyber.html">Cybersecurity</a>
+            <a href="projects.html">Photoshop</a>
+          </div>
+        </div>
       </nav>
     </aside>
 
@@ -53,7 +52,6 @@
           </div>
         </div>
 
-        
         <div class="project">
           <h3>Before & After – Concept Star Wars: Mara Jade Movie</h3>
           <div class="before-after-container">
@@ -62,7 +60,7 @@
               <img src="images/marajadeafter.png" class="ba-img after" alt="After Mara Jade" />
               <input type="range" min="0" max="100" value="50" class="slider" />
             </div>
-            <p>Slide to compare the raw images and the final edited poster.</p>
+            <p>Slide to compare the concept design before and after edits.</p>
           </div>
         </div>
 
@@ -70,18 +68,15 @@
     </main>
   </div>
 
-    
-      </section>
-    </main>
-  </div>
-
   <script>
-    const slider = document.querySelector('.slider');
-    const afterImg = document.querySelector('.after');
+    const sliders = document.querySelectorAll('.slider');
+    const afterImages = document.querySelectorAll('.after');
 
-    slider.addEventListener('input', function () {
-      const value = this.value;
-      afterImg.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+    sliders.forEach((slider, index) => {
+      slider.addEventListener('input', function () {
+        const value = this.value;
+        afterImages[index].style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+      });
     });
   </script>
 </body>
