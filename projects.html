@@ -10,6 +10,7 @@
   <div class="container">
     <aside class="sidebar">
       <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+
       <div class="social-icons">
         <a href="https://www.facebook.com/william.oshaughnessy.940" target="_blank" title="Facebook">
           <img src="images/facebook.png" alt="Facebook" />
@@ -21,15 +22,19 @@
           <img src="images/ln.png" alt="LinkedIn" />
         </a>
       </div>
+
       <h1>William O'Shaughnessy</h1>
+
       <nav>
-     <div class="dropdown">
-  <button class="dropbtn" onclick="toggleDropdown()">Projects ▾</button>
-  <div class="dropdown-content" id="dropdownContent">
-    <a href="cyber.html">Cybersecurity</a>
-    <a href="projects.html">Photoshop</a>
-  </div>
-</div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="resume.html">Resume</a>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown()">Projects ▾</button>
+          <div class="dropdown-content" id="dropdownContent">
+            <a href="cyber.html">Cybersecurity</a>
+            <a href="projects.html">Photoshop</a>
+          </div>
         </div>
       </nav>
     </aside>
@@ -61,12 +66,12 @@
             <p>Slide to compare the concept design before and after edits.</p>
           </div>
         </div>
-
       </section>
     </main>
   </div>
 
   <script>
+    // Handles all before/after sliders
     const sliders = document.querySelectorAll('.slider');
     const afterImages = document.querySelectorAll('.after');
 
@@ -77,5 +82,7 @@
       });
     });
   </script>
+
+  <script src="dropdown.js"></script>
 </body>
 </html>
