@@ -10,16 +10,34 @@
   <div class="container">
     <aside class="sidebar">
       <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
-      <h1>William O'Shaughnessy</h1>
-      <nav>
-        <div class="dropdown">
-  <button class="dropbtn" onclick="toggleDropdown()">Projects ▾</button>
-  <div class="dropdown-content" id="dropdownContent">
-    <a href="cyber.html">Cybersecurity</a>
-    <a href="projects.html">Photoshop</a>
-  </div>
-</div>
 
+      <div class="social-icons">
+        <a href="https://www.facebook.com/william.oshaughnessy.940" target="_blank" title="Facebook">
+          <img src="images/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/billiam31/" target="_blank" title="Instagram">
+          <img src="images/instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+          <img src="images/ln.png" alt="LinkedIn" />
+        </a>
+      </div>
+
+      <h1>William O'Shaughnessy</h1>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="resume.html">Resume</a>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown()">
+            Projects <span id="arrow">▾</span>
+          </button>
+          <div class="dropdown-content" id="dropdownContent">
+            <a href="cyber.html">Cybersecurity</a>
+            <a href="projects.html">Photoshop</a>
+          </div>
+        </div>
       </nav>
     </aside>
 
@@ -39,5 +57,7 @@
       </section>
     </main>
   </div>
+
+  <script src="dropdown.js"></script>
 </body>
 </html>
