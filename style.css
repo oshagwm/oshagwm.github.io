@@ -10,6 +10,7 @@ body {
   width: 100%;
 }
 
+/* Sidebar Styling */
 .sidebar {
   background: linear-gradient(to bottom, #4f5c66, #1c1e20);
   color: white;
@@ -43,6 +44,13 @@ body {
   color: white;
 }
 
+/* Active Link Highlighting */
+.sidebar nav a.active,
+.dropdown-content a.active {
+  color: #f97316;
+  font-weight: bold;
+}
+
 /* Social Media Icons */
 .social-icons {
   margin: 15px 0;
@@ -59,7 +67,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Main content styling */
+/* Main Content Styling */
 .content {
   flex-grow: 1;
   padding: 40px;
@@ -154,6 +162,9 @@ body {
   background-color: #2a2d30;
   padding-left: 10px;
   margin-top: 5px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .dropdown-content.show {
@@ -170,4 +181,20 @@ body {
 
 .dropdown-content a:hover {
   color: white;
+}
+
+/* Responsive Enhancements (Optional) */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .content {
+    padding: 20px;
+  }
 }
