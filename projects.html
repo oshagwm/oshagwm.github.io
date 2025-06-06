@@ -29,11 +29,20 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="resume.html">Resume</a>
+
         <div class="dropdown">
-          <button class="dropbtn" onclick="toggleDropdown()">Projects ▾</button>
-          <div class="dropdown-content" id="dropdownContent">
+          <button class="dropbtn" onclick="toggleDropdown('projectsDropdown')">Projects ▾</button>
+          <div class="dropdown-content" id="projectsDropdown">
             <a href="cyber.html">Cybersecurity</a>
-            <a href="projects.html">Photoshop</a>
+            <a href="projects.html" style="color: #f97316;">Photoshop</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown('interestsDropdown')">Interests ▾</button>
+          <div class="dropdown-content" id="interestsDropdown">
+            <a href="snowden.html">Snowden</a>
+            <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
           </div>
         </div>
       </nav>
@@ -85,29 +94,4 @@
 
   <script src="dropdown.js"></script>
 </body>
-
-
-  <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="resume.html">Resume</a>
-        <<div class="dropdown">
-  <button class="dropbtn" onclick="toggleDropdown('projectsDropdown')">Projects ▾</button>
-  <div class="dropdown-content" id="projectsDropdown">
-    <a href="cyber.html">Cybersecurity</a>
-    <a href="projects.html">Photoshop</a>
-  </div>
-</div>
-
-<div class="dropdown">
-  <button class="dropbtn" onclick="toggleDropdown('interestsDropdown')">Interests ▾</button>
-  <div class="dropdown-content" id="interestsDropdown">
-    <a href="snowden.html">Snowden</a>
-    <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
-  </div>
-</div>
-
-  </div>
-</div>
-
 </html>
