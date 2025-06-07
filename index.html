@@ -9,8 +9,32 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-      <div class="logo-wrapper" onclick="toggleKeypad()">
-        <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+      <!-- Flip card for logo and keypad -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+          </div>
+          <div class="flip-card-back">
+            <div class="keypad">
+              <button class="key" data-value="A">A</button>
+              <button class="key" data-value="1">1</button>
+              <button class="key" data-value="B">B</button>
+              <button class="key" data-value="2">2</button>
+              <button class="key" data-value="C">C</button>
+              <button class="key" data-value="3">3</button>
+              <button class="key" data-value="*">*</button>
+              <button class="key" data-value="#">#</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Secret dropdown (hidden by default) -->
+      <div class="secret-dropdown" id="secretDropdown">
+        <p>Secret Unlocked! Welcome to the hidden section.</p>
+        <!-- Customize this content as needed -->
+        <a href="#">Hidden Link 1</a>
+        <a href="#">Hidden Link 2</a>
       </div>
 
       <div class="social-icons">
@@ -48,21 +72,6 @@
           </div>
         </div>
       </nav>
-
-      <div id="keypad" class="keypad hidden">
-        <button onclick="pressKey('A')">A</button>
-        <button onclick="pressKey('1')">1</button>
-        <button onclick="pressKey('B')">B</button>
-        <button onclick="pressKey('2')">2</button>
-        <button onclick="pressKey('C')">C</button>
-        <button onclick="pressKey('3')">3</button>
-        <button onclick="pressKey('*')">*</button>
-        <button onclick="pressKey('#')">#</button>
-      </div>
-
-      <div class="dropdown-content hidden" id="secretDropdown">
-        <a href="secret.html">Secret Project</a>
-      </div>
     </aside>
 
     <main class="content">
@@ -74,24 +83,5 @@
   </div>
 
   <script src="dropdown.js"></script>
-  <script>
-    let secretCode = ['A', 'B', '1', 'C', '3'];
-    let inputSequence = [];
-
-    function toggleKeypad() {
-      document.getElementById('keypad').classList.toggle('hidden');
-    }
-
-    function pressKey(key) {
-      inputSequence.push(key);
-      if (inputSequence.length > secretCode.length) {
-        inputSequence.shift();
-      }
-
-      if (inputSequence.join('') === secretCode.join('')) {
-        document.getElementById('secretDropdown').classList.toggle('hidden');
-      }
-    }
-  </script>
 </body>
 </html>
