@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hate Tolerance Scale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .scale {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .section {
+            width: 80%;
+            padding: 20px;
+            margin: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        .section img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            box-shadow: 0px 0px 10px gray;
+        }
+        .close {
+            cursor: pointer;
+            color: red;
+            display: block;
+            text-align: right;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hate Tolerance Scale</h1>
+    <div class="scale">
+        <div class="section" id="tolerate">
+            <h2>Dislike But Tolerate</h2>
+            <img src="images/georgewbush.png" alt="George W. Bush" onclick="showPopup('George W. Bush', 'Initiated interventionist wars, signed the Patriot Act, and mismanaged the response to Hurricane Katrina.')">
+            <img src="images/billclinton.png" alt="Bill Clinton" onclick="showPopup('Bill Clinton', 'Expanded NATO, allowed foreign exploitation of America, and has been linked to suspicious activities.')">
+            <img src="images/berniesanders.png" alt="Bernie Sanders" onclick="showPopup('Bernie Sanders', 'A staunch socialist who advocates for extreme economic policies.')">
+            <img src="images/johnmccain.png" alt="John McCain" onclick="showPopup('John McCain', 'Denied the repeal of Obamacare, not a war hero, and a weak link within the Washington establishment.')">
+        </div>
+        <div class="section" id="coexist">
+            <h2>Strong Dislike but Can Coexist</h2>
+            <img src="images/nikkihaley.png" alt="Nikki Haley" onclick="showPopup('Nikki Haley', 'Warhawk with interventionist foreign policy views.')">
+            <img src="images/mitchmcconnell.png" alt="Mitch McConnell" onclick="showPopup('Mitch McConnell', 'Longtime Washington insider; a warhawk and a pillar of the political establishment.')">
+            <img src="images/barackobama.png" alt="Barack Obama" onclick="showPopup('Barack Obama', 'Expanded government surveillance, implemented Obamacare, and has been accused of fostering racial division.')">
+            <img src="images/joebiden.png" alt="Joe Biden" onclick="showPopup('Joe Biden', 'Weaponized political power against opponents, botched the Afghanistan withdrawal, and took credit for reinstating Trump’s insulin cap after removing it.')">
+            <img src="images/aoc.png" alt="AOC" onclick="showPopup('AOC', 'Arguably the most insufferable member of Congress, known for radical policies and grandstanding.')">
+        </div>
+        <div class="section" id="avoidance">
+            <h2>Intense Aversion, Avoidance Preferred</h2>
+            <img src="images/mikepompeo.png" alt="Mike Pompeo" onclick="showPopup('Mike Pompeo', 'Deep State loyalist; allegedly plotted the assassination of Julian Assange.')">
+            <img src="images/hillaryclinton.png" alt="Hillary Clinton" onclick="showPopup('Hillary Clinton', 'Strong advocate of big government and suspected of various controversies, including alleged criminal activity.')">
+            <img src="images/lizcheney.png" alt="Liz Cheney" onclick="showPopup('Liz Cheney', 'War criminal; aligned with Kamala Harris.')">
+            <img src="images/dickcheney.png" alt="Dick Cheney" onclick="showPopup('Dick Cheney', 'War criminal; supported Kamala Harris.')">
+        </div>
+        <div class="section" id="hostile">
+            <h2>Hostile but Non-Violent Opposition</h2>
+            <img src="images/kathyhochul.png" alt="Kathy Hochul" onclick="showPopup('Kathy Hochul', 'Arguably New York’s worst governor; indifferent to rising crime, lacks integrity, and governs without conviction.')">
+            <img src="images/kathleenkennedy.png" alt="Kathleen Kennedy" onclick="showPopup('Kathleen Kennedy', 'Reshaped Star Wars in her vision, misunderstood its core themes, and has publicly disrespected George Lucas.')">
+            <img src="images/gavinnewsom.png" alt="Gavin Newsom" onclick="showPopup('Gavin Newsom', 'Sucked up to President Xi Jinping by cleaning poop and homeless, hypocritical during COVID, and basically legalized pedophilia in California.')">
+        </div>
+        <div class="section" id="extreme">
+            <h2>Extreme Opposition</h2>
+            <img src="images/michaelhayden.png" alt="Michael Hayden" onclick="showPopup('Michael Hayden', 'Architect of mass surveillance and the Patriot Act; continues to defend its legacy without remorse.')">
+            <img src="images/jamesclapper.png" alt="James Clapper" onclick="showPopup('James Clapper', 'Expanded mass surveillance, misled Congress, and remains a staunch defender of the Patriot Act.')">
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupTitle"></h2>
+        <p id="popupText"></p>
+    </div>
+    <script>
+        function showPopup(title, text) {
+            document.getElementById("popupTitle").innerText = title;
+            document.getElementById("popupText").innerText = text;
+            document.getElementById("popup").style.display = "block";
+        }
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>
