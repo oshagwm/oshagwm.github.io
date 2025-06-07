@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snowden</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <!-- Flip card for logo and keypad -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+          </div>
+          <div class="flip-card-back">
+            <div class="keypad">
+              <button class="key" data-value="A">A</button>
+              <button class="key" data-value="1">1</button>
+              <button class="key" data-value="B">B</button>
+              <button class="key" data-value="2">2</button>
+              <button class="key" data-value="C">C</button>
+              <button class="key" data-value="3">3</button>
+              <button class="key" data-value="*">*</button>
+              <button class="key" data-value="#">#</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Secret dropdown (hidden by default) -->
+      <div class="secret-dropdown" id="secretDropdown">
+        <p>Secret Unlocked! Welcome to the hidden section.</p>
+        <!-- Customize this content as needed -->
+        <a href="#">Hidden Link 1</a>
+        <a href="#">Hidden Link 2</a>
+      </div>
+
+      <h1>William O'Shaughnessy</h1>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="resume.html">Resume</a>
+
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown('projectsDropdown')">Projects ▾</button>
+          <div class="dropdown-content" id="projectsDropdown">
+            <a href="cyber.html">Cybersecurity</a>
+            <a href="projects.html">Photoshop</a>
+          </div>
+        </div>
