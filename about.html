@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <!-- Flip card for logo and keypad -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+          </div>
+          <div class="flip-card-back">
+            <div class="keypad">
+              <button class="key" data-value="A">A</button>
+              <button class="key" data-value="1">1</button>
+              <button class="key" data-value="B">B</button>
+              <button class="key" data-value="2">2</button>
+              <button class="key" data-value="C">C</button>
+              <button class="key" data-value="3">3</button>
+              <button class="key" data-value="*">*</button>
+              <button class="key" data-value="#">#</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Secret dropdown with Interests links -->
+      <div class="secret-dropdown" id="secretDropdown">
+        <p>Interests</p>
+        <a href="snowden.html">Snowden</a>
+        <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/william.oshaughnessy.940" target="_blank" title="Facebook">
+          <img src="images/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/billiam31/" target="_blank" title="Instagram">
+          <img src="images/instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+          <img src="images/ln.png" alt="LinkedIn" />
+        </a>
+      </div>
+
+      <h1>William O'Shaughnessy</h1>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" style="color: #f97316;">About Me</a>
+        <a href="resume.html">Resume</a>
+
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown('projectsDropdown')">Projects ▾</button>
+          <div class="dropdown-content" id="projectsDropdown">
+            <a href="cyber.html">Cybersecurity</a>
+            <a href="projects.html">Photoshop</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section>
+        <h2>About Me</h2>
+        <p>
+          I grew up in Rome, NY and now live out in Ava. After graduating from RFA in 2022, 
+          I got my associate’s degree at MVCC in 2024 and I’m currently working on my bachelor’s 
+          in Network Computer Security at SUNY Poly — aiming to graduate in 2026.
+        </p>
+        <p>
+          I’m into pretty much anything involving computers — whether it’s messing around with AI, gaming, photo and 
+          video editing, or just digging into tech. When I’m not in front of a screen, I might 
+          be on a golf course, diving into some random bit of history, or blasting '90s country music.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="dropdown.js"></script>
+</body>
+</html>
