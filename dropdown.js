@@ -50,9 +50,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(`Found ${keys.length} keypad buttons`);
 
+  // Flip the card when logo clicked (except keypad buttons)
   flipCard.addEventListener('click', (e) => {
     if (!e.target.classList.contains('key')) {
       console.log('Logo clicked, toggling flip');
       flipCard.classList.toggle('flipped');
       if (!flipCard.classList.contains('flipped')) {
         inputSequence = [];
+      }
+    }
+  });
+
+  // Keypad input handling
+  keys.forEach((key) => {
+    key.addEventListener('click', (e) => {
+      const val = e.target.textContent.trim();
+      inputSequence.push(val);
+
+      // Limit sequence length
+      if (inputSequence.length > correctSequence.length) {
+        inputSequence.shift();
+      }
+
+      console.log('Current input:', inputSequence.join(','));
+
+      // Check for match
+      if (inputSequence.join(',') === correctSequence.join(',')) {
+        console.log('🎉 Secret sequence unlocked!');
+        secretDropdown.classList.add('show');
+        inputSequence = [];
+        flipCard.classList.remove('flipped');
+      }
+    });
+  });
+});
