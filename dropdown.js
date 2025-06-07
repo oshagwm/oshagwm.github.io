@@ -15,9 +15,12 @@ function toggleDropdown(id) {
   }
 }
 
-// Close all dropdowns if the click is outside the entire dropdown area
+// Close all dropdowns unless the click was inside a .dropdown or the secret one
 window.addEventListener('click', function (e) {
-  if (!e.target.closest('.dropdown')) {
+  const isInsideDropdown = e.target.closest('.dropdown');
+  const isInsideSecret = e.target.closest('#secretDropdown');
+
+  if (!isInsideDropdown && !isInsideSecret) {
     document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
       dropdown.classList.remove('show');
     });
