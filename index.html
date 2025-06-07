@@ -9,7 +9,9 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-      <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+      <div class="logo-wrapper" onclick="toggleKeypad()">
+        <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+      </div>
 
       <div class="social-icons">
         <a href="https://www.facebook.com/william.oshaughnessy.940" target="_blank" title="Facebook">
@@ -46,6 +48,21 @@
           </div>
         </div>
       </nav>
+
+      <div id="keypad" class="keypad hidden">
+        <button onclick="pressKey('A')">A</button>
+        <button onclick="pressKey('1')">1</button>
+        <button onclick="pressKey('B')">B</button>
+        <button onclick="pressKey('2')">2</button>
+        <button onclick="pressKey('C')">C</button>
+        <button onclick="pressKey('3')">3</button>
+        <button onclick="pressKey('*')">*</button>
+        <button onclick="pressKey('#')">#</button>
+      </div>
+
+      <div class="dropdown-content hidden" id="secretDropdown">
+        <a href="secret.html">Secret Project</a>
+      </div>
     </aside>
 
     <main class="content">
@@ -57,5 +74,24 @@
   </div>
 
   <script src="dropdown.js"></script>
+  <script>
+    let secretCode = ['A', 'B', '1', 'C', '3'];
+    let inputSequence = [];
+
+    function toggleKeypad() {
+      document.getElementById('keypad').classList.toggle('hidden');
+    }
+
+    function pressKey(key) {
+      inputSequence.push(key);
+      if (inputSequence.length > secretCode.length) {
+        inputSequence.shift();
+      }
+
+      if (inputSequence.join('') === secretCode.join('')) {
+        document.getElementById('secretDropdown').classList.toggle('hidden');
+      }
+    }
+  </script>
 </body>
 </html>
