@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Prevent flip if clicking a keypad button
       if (!e.target.classList.contains('key')) {
         flipCard.classList.toggle('flipped');
-        // Reset sequence when flipping back to logo
+        // Reset sequence and hide dropdown when flipping back to logo
         if (!flipCard.classList.contains('flipped')) {
           inputSequence = [];
           secretDropdown.classList.remove('show');
@@ -52,6 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
   keys.forEach((key) => {
     key.addEventListener('click', () => {
       const value = key.getAttribute('data-value');
+
+      // If # is clicked, flip back to logo and hide dropdown
+      if (value === '#') {
+        flipCard.classList.remove('flipped');
+        inputSequence = [];
+        secretDropdown.classList.remove('show');
+        return;
+      }
+
+      // Otherwise, process the sequence
       inputSequence.push(value);
 
       // Check sequence
