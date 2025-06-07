@@ -9,20 +9,32 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-
-      <!-- LOGO & KEYPAD -->
-      <div class="logo-container" onclick="toggleKeypad()" style="cursor: pointer; position: relative;">
-        <img src="images/logo.png" alt="Profile Picture" class="profile-pic" id="logo" />
-        <div class="keypad" id="keypad" style="display: none; position: absolute; top: 0; left: 0; width: 120px; height: 120px; background-color: #333; border-radius: 50%; padding: 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; justify-items: center; align-items: center;">
-          <button onclick="pressKey('A')">A</button>
-          <button onclick="pressKey('1')">1</button>
-          <button onclick="pressKey('B')">B</button>
-          <button onclick="pressKey('2')">2</button>
-          <button onclick="pressKey('C')">C</button>
-          <button onclick="pressKey('3')">3</button>
-          <button onclick="pressKey('*')">*</button>
-          <button onclick="pressKey('#')">#</button>
+      <!-- Flip card for logo and keypad -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+          </div>
+          <div class="flip-card-back">
+            <div class="keypad">
+              <button class="key" data-value="A">A</button>
+              <button class="key" data-value="1">1</button>
+              <button class="key" data-value="B">B</button>
+              <button class="key" data-value="2">2</button>
+              <button class="key" data-value="C">C</button>
+              <button class="key" data-value="3">3</button>
+              <button class="key" data-value="*">*</button>
+              <button class="key" data-value="#">#</button>
+            </div>
+          </div>
         </div>
+      </div>
+      <!-- Secret dropdown (hidden by default) -->
+      <div class="secret-dropdown" id="secretDropdown">
+        <p>Secret Unlocked! Welcome to the hidden section.</p>
+        <!-- Customize this content as needed -->
+        <a href="#">Hidden Link 1</a>
+        <a href="#">Hidden Link 2</a>
       </div>
 
       <div class="social-icons">
@@ -59,16 +71,6 @@
             <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
           </div>
         </div>
-
-        <!-- SECRET DROPDOWN -->
-        <div class="dropdown" id="secretDropdown" style="display: none;">
-          <button class="dropbtn" onclick="toggleDropdown('secretProjectsDropdown')">Secret Projects ▾</button>
-          <div class="dropdown-content" id="secretProjectsDropdown">
-            <a href="#">Classified 1</a>
-            <a href="#">Classified 2</a>
-          </div>
-        </div>
-
       </nav>
     </aside>
 
@@ -103,8 +105,8 @@
     </main>
   </div>
 
-  <!-- Before/After Slider JS -->
   <script>
+    // Handles all before/after sliders
     const sliders = document.querySelectorAll('.slider');
     const afterImages = document.querySelectorAll('.after');
 
@@ -116,26 +118,6 @@
     });
   </script>
 
-  <!-- Dropdown Toggle JS -->
   <script src="dropdown.js"></script>
-
-  <!-- Secret Keypad Script -->
-  <script>
-    let sequence = [];
-    const correctSequence = ['A', 'B', '1', 'C', '3'];
-
-    function toggleKeypad() {
-      const keypad = document.getElementById('keypad');
-      keypad.style.display = keypad.style.display === 'none' ? 'grid' : 'none';
-    }
-
-    function pressKey(key) {
-      sequence.push(key);
-      if (sequence.length > correctSequence.length) sequence.shift();
-      if (JSON.stringify(sequence) === JSON.stringify(correctSequence)) {
-        document.getElementById('secretDropdown').style.display = 'block';
-      }
-    }
-  </script>
 </body>
 </html>
