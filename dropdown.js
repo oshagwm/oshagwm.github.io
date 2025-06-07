@@ -1,3 +1,4 @@
+// Existing dropdown toggle function (unchanged)
 function toggleDropdown(id) {
   const dropdowns = document.querySelectorAll('.dropdown-content');
 
@@ -15,14 +16,52 @@ function toggleDropdown(id) {
   }
 }
 
-// Close all dropdowns unless the click was inside a .dropdown or the secret one
+// Close all dropdowns if the click is outside the entire dropdown area
 window.addEventListener('click', function (e) {
-  const isInsideDropdown = e.target.closest('.dropdown');
-  const isInsideSecret = e.target.closest('#secretDropdown');
-
-  if (!isInsideDropdown && !isInsideSecret) {
+  if (!e.target.closest('.dropdown')) {
     document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
       dropdown.classList.remove('show');
     });
   }
+});
+
+// New code for logo flip and keypad sequence
+document.addEventListener('DOMContentLoaded', () => {
+  const flipCard = document.querySelector('.flip-card');
+  const keys = document.querySelectorAll('.key');
+  const secretDropdown = document.getElementById('secretDropdown');
+  let inputSequence = [];
+  const correctSequence = ['A', 'B', '1', 'C', '3'];
+
+  // Toggle flip on logo click
+  if (flipCard) {
+    flipCard.addEventListener('click', (e) => {
+      // Prevent flip if clicking a keypad button
+      if (!e.target.classList.contains('key')) {
+        flipCard.classList.toggle('flipped');
+        // Reset sequence when flipping back to logo
+        if (!flipCard.classList.contains('flipped')) {
+          inputSequence = [];
+          secretDropdown.classList.remove('show');
+        }
+      }
+    });
+  }
+
+  // Handle keypad button clicks
+  keys.forEach((key) => {
+    key.addEventListener('click', () => {
+      const value = key.getAttribute('data-value');
+      inputSequence.push(value);
+
+      // Check sequence
+      if (inputSequence.length === correctSequence.length) {
+        if (inputSequence.join('') === correctSequence.join('')) {
+          secretDropdown.classList.add('show'); // Show secret dropdown
+        } else {
+          inputSequence = []; // Reset on wrong sequence
+        }
+      }
+    });
+  });
 });
