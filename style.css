@@ -1,200 +1,40 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  height: 100vh;
-}
-
-.container {
-  display: flex;
-  width: 100%;
-}
-
-/* Sidebar Styling */
-.sidebar {
-  background: linear-gradient(to bottom, #4f5c66, #1c1e20);
-  color: white;
-  width: 250px;
-  padding: 20px;
-  text-align: center;
-}
-
-.profile-pic {
+/* Keypad Easter Egg Styling */
+.logo-container {
+  position: relative;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
+  margin: 0 auto 10px auto;
+  cursor: pointer;
 }
 
-.sidebar h1 {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.sidebar nav a {
-  display: block;
-  color: #ccc;
-  text-decoration: none;
-  padding: 8px 0;
-  transition: color 0.3s;
-}
-
-.sidebar nav a:hover {
-  color: white;
-}
-
-/* Active Link Highlighting */
-.sidebar nav a.active,
-.dropdown-content a.active {
-  color: #f97316;
-  font-weight: bold;
-}
-
-/* Social Media Icons */
-.social-icons {
-  margin: 15px 0;
-}
-
-.social-icons a img {
-  height: 28px;
-  margin: 0 5px;
-  vertical-align: middle;
-  transition: transform 0.2s ease;
-}
-
-.social-icons a:hover img {
-  transform: scale(1.1);
-}
-
-/* Main Content Styling */
-.content {
-  flex-grow: 1;
-  padding: 40px;
-  background-color: #ffffff;
-  color: #333;
-}
-
-.content h2 {
-  font-weight: normal;
-  color: #555;
-}
-
-/* Project Card Styling */
-.project {
-  background-color: #f8f8f8;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  border-left: 4px solid #4f5c66;
-  border-radius: 6px;
-}
-
-.project h3 {
-  margin-top: 0;
-  color: #333;
-}
-
-/* Before-After Slider */
-.before-after-container {
-  margin-top: 15px;
-}
-
-.ba-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  overflow: hidden;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.ba-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.ba-img.after {
+#keypad {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  clip-path: inset(0 50% 0 0);
-  transition: clip-path 0.2s ease;
-  pointer-events: none;
+  width: 120px;
+  height: 120px;
+  background-color: #1c1e20;
+  border-radius: 50%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  justify-items: center;
+  align-items: center;
+  z-index: 10;
 }
 
-.slider {
-  width: 100%;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-/* Dropdown (Click-to-Toggle) */
-.dropdown {
-  display: block;
-  margin-top: 8px;
-  text-align: left;
-}
-
-.dropbtn {
-  display: block;
-  width: 100%;
-  color: #ccc;
-  text-decoration: none;
-  padding: 8px 0;
-  background: none;
+#keypad button {
+  background-color: #4f5c66;
+  color: white;
   border: none;
-  font-family: inherit;
-  font-size: 1rem;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
   cursor: pointer;
-  text-align: left;
-  transition: color 0.3s;
+  transition: background-color 0.2s;
 }
 
-.dropbtn:hover {
-  color: white;
-}
-
-.dropdown-content {
-  display: none;
-  flex-direction: column;
-  background-color: #2a2d30;
-  padding-left: 10px;
-  margin-top: 5px;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.dropdown-content.show {
-  display: flex;
-}
-
-.dropdown-content a {
-  padding: 6px 0;
-  color: #bbb;
-  text-decoration: none;
-  display: block;
-  transition: color 0.3s;
-}
-
-.dropdown-content a:hover {
-  color: white;
-}
-
-/* Responsive Enhancements (Optional) */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    text-align: center;
-  }
-
-  .content {
-    padding: 20px;
-  }
+#keypad button:hover {
+  background-color: #f97316;
 }
