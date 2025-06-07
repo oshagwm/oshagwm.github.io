@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <!-- Flip card for logo and keypad -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+          </div>
+          <div class="flip-card-back">
+            <div class="keypad">
+              <button class="key" data-value="A">A</button>
+              <button class="key" data-value="1">1</button>
+              <button class="key" data-value="B">B</button>
+              <button class="key" data-value="2">2</button>
+              <button class="key" data-value="C">C</button>
+              <button class="key" data-value="3">3</button>
+              <button class="key" data-value="*">*</button>
+              <button class="key" data-value="#">#</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Secret dropdown (hidden by default) -->
+      <div class="secret-dropdown" id="secretDropdown">
+        <p>Secret Unlocked! Welcome to the hidden section.</p>
+        <!-- Customize this content as needed -->
+        <a href="#">Hidden Link 1</a>
+        <a href="#">Hidden Link 2</a>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/william.oshaughnessy.940" target="_blank" title="Facebook">
+          <img src="images/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/billiam31/" target="_blank" title="Instagram">
+          <img src="images/instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+          <img src="images/ln.png" alt="LinkedIn" />
+        </a>
+      </div>
+
+      <h1>William O'Shaughnessy</h1>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="resume.html">Resume</a>
+
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown('projectsDropdown')">Projects ▾</button>
+          <div class="dropdown-content" id="projectsDropdown">
+            <a href="cyber.html">Cybersecurity</a>
+            <a href="projects.html" style="color: #f97316;">Photoshop</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown('interestsDropdown')">Interests ▾</button>
+          <div class="dropdown-content" id="interestsDropdown">
+            <a href="snowden.html">Snowden</a>
+            <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section>
+        <h2>Photoshop Projects</h2>
+
+        <div class="project">
+          <h3>Before & After – Pardon Snowden Poster</h3>
+          <div class="before-after-container">
+            <div class="ba-wrapper">
+              <img src="images/snowdenbefore.png" class="ba-img before" alt="Before Snowden Poster" />
+              <img src="images/snowdenafter.png" class="ba-img after" alt="After Snowden Poster" />
+              <input type="range" min="0" max="100" value="50" class="slider" />
+            </div>
+            <p>Slide to compare the raw images and the final edited poster.</p>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3>Before & After – Concept Star Wars: Mara Jade Movie</h3>
+          <div class="before-after-container">
+            <div class="ba-wrapper">
+              <img src="images/marajadebefore.png" class="ba-img before" alt="Before Mara Jade" />
+              <img src="images/marajadeafter.png" class="ba-img after" alt="After Mara Jade" />
+              <input type="range" min="0" max="100" value="50" class="slider" />
+            </div>
+            <p>Slide to compare the concept design before and after edits.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Handles all before/after sliders
+    const sliders = document.querySelectorAll('.slider');
+    const afterImages = document.querySelectorAll('.after');
+
+    sliders.forEach((slider, index) => {
+      slider.addEventListener('input', function () {
+        const value = this.value;
+        afterImages[index].style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+      });
+    });
+  </script>
+
+  <script src="dropdown.js"></script>
+</body>
+</html>
