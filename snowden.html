@@ -9,7 +9,21 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-      <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+      <!-- CLICKABLE LOGO & KEYPAD -->
+      <div class="logo-container" onclick="toggleKeypad()" style="cursor: pointer; position: relative;">
+        <img src="images/logo.png" alt="Profile Picture" class="profile-pic" id="logo" />
+        <div class="keypad" id="keypad" style="display: none; position: absolute; top: 0; left: 0; width: 120px; height: 120px; background-color: #333; border-radius: 50%; padding: 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; justify-items: center; align-items: center;">
+          <button onclick="pressKey('A')">A</button>
+          <button onclick="pressKey('1')">1</button>
+          <button onclick="pressKey('B')">B</button>
+          <button onclick="pressKey('2')">2</button>
+          <button onclick="pressKey('C')">C</button>
+          <button onclick="pressKey('3')">3</button>
+          <button onclick="pressKey('*')">*</button>
+          <button onclick="pressKey('#')">#</button>
+        </div>
+      </div>
+
       <h1>William O'Shaughnessy</h1>
       <nav>
         <a href="index.html">Home</a>
@@ -29,6 +43,15 @@
           <div class="dropdown-content" id="interestsDropdown">
             <a href="snowden.html" style="color: #f97316;">Snowden</a>
             <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
+          </div>
+        </div>
+
+        <!-- SECRET DROPDOWN -->
+        <div class="dropdown" id="secretDropdown" style="display: none;">
+          <button class="dropbtn" onclick="toggleDropdown('secretProjectsDropdown')">Secret Projects ▾</button>
+          <div class="dropdown-content" id="secretProjectsDropdown">
+            <a href="#">Redacted 1</a>
+            <a href="#">Redacted 2</a>
           </div>
         </div>
       </nav>
@@ -62,5 +85,23 @@
   </div>
 
   <script src="dropdown.js"></script>
+
+  <script>
+    let sequence = [];
+    const correctSequence = ['A', 'B', '1', 'C', '3'];
+
+    function toggleKeypad() {
+      const keypad = document.getElementById('keypad');
+      keypad.style.display = keypad.style.display === 'none' ? 'grid' : 'none';
+    }
+
+    function pressKey(key) {
+      sequence.push(key);
+      if (sequence.length > correctSequence.length) sequence.shift();
+      if (JSON.stringify(sequence) === JSON.stringify(correctSequence)) {
+        document.getElementById('secretDropdown').style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
