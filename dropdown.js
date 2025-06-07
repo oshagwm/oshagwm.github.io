@@ -1,90 +1,67 @@
-/* Minimal CSS for flip card, keypad, and secret dropdown */
-.flip-card {
-  width: 150px; /* Adjust to your logo size */
-  height: 150px;
-  perspective: 1000px;
-  margin: 0 auto;
-  cursor: pointer;
+// Existing dropdown toggle function (unchanged)
+function toggleDropdown(id) {
+  const dropdowns = document.querySelectorAll('.dropdown-content');
+
+  // Close all other dropdowns
+  dropdowns.forEach((dropdown) => {
+    if (dropdown.id !== id) {
+      dropdown.classList.remove('show');
+    }
+  });
+
+  // Toggle the clicked dropdown
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.toggle('show');
+  }
 }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
+// Close all dropdowns if the click is outside the entire dropdown area
+window.addEventListener('click', function (e) {
+  if (!e.target.closest('.dropdown')) {
+    document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
+      dropdown.classList.remove('show');
+    });
+  }
+});
 
-.flip-card.flipped .flip-card-inner {
-  transform: rotateY(180deg);
-}
+// New code for logo flip and keypad sequence
+document.addEventListener('DOMContentLoaded', () => {
+  const flipCard = document.querySelector('.flip-card');
+  const keys = document.querySelectorAll('.key');
+  const secretDropdown = document.getElementById('secretDropdown');
+  let inputSequence = [];
+  const correctSequence = ['A', 'B', '1', 'C', '3'];
 
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
+  // Toggle flip on logo click
+  if (flipCard) {
+    flipCard.addEventListener('click', (e) => {
+      // Prevent flip if clicking a keypad button
+      if (!e.target.classList.contains('key')) {
+        flipCard.classList.toggle('flipped');
+        // Reset sequence when flipping back to logo
+        if (!flipCard.classList.contains('flipped')) {
+          inputSequence = [];
+          secretDropdown.classList.remove('show');
+        }
+      }
+    });
+  }
 
-.flip-card-front {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  // Handle keypad button clicks
+  keys.forEach((key) => {
+    key.addEventListener('click', () => {
+      const value = key.getAttribute('data-value');
+      inputSequence.push(value);
 
-.flip-card-back {
-  transform: rotateY(180deg);
-  background: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
-  padding: 10px;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.key {
-  background: #555;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.key:hover {
-  background: #f97316; /* Matches your orange theme */
-}
-
-.secret-dropdown {
-  display: none;
-  background: #222;
-  color: #fff;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.secret-dropdown.show {
-  display: block;
-}
-
-.secret-dropdown p,
-.secret-dropdown a {
-  margin: 5px 0;
-  color: #f97316;
-  text-decoration: none;
-}
-
-.secret-dropdown a:hover {
-  text-decoration: underline;
-}
+      // Check sequence
+      if (inputSequence.length === correctSequence.length) {
+        if (inputSequence.join('') === correctSequence.join('')) {
+          secretDropdown.classList.add('show'); // Show secret dropdown
+        } else {
+          inputSequence = []; // Reset on wrong sequence
+        }
+      }
+    });
+  });
+});
