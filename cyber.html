@@ -9,20 +9,32 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-
-      <!-- Flipping Logo + Keypad -->
-      <div class="logo-container" onclick="toggleKeypad()">
-        <img src="images/logo.png" alt="Profile Picture" class="profile-pic front" />
-        <div class="keypad back">
-          <button onclick="pressKey('A')">A</button>
-          <button onclick="pressKey('1')">1</button>
-          <button onclick="pressKey('B')">B</button>
-          <button onclick="pressKey('2')">2</button>
-          <button onclick="pressKey('C')">C</button>
-          <button onclick="pressKey('3')">3</button>
-          <button onclick="pressKey('*')">*</button>
-          <button onclick="pressKey('#')">#</button>
+      <!-- Flip card for logo and keypad -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+          </div>
+          <div class="flip-card-back">
+            <div class="keypad">
+              <button class="key" data-value="A">A</button>
+              <button class="key" data-value="1">1</button>
+              <button class="key" data-value="B">B</button>
+              <button class="key" data-value="2">2</button>
+              <button class="key" data-value="C">C</button>
+              <button class="key" data-value="3">3</button>
+              <button class="key" data-value="*">*</button>
+              <button class="key" data-value="#">#</button>
+            </div>
+          </div>
         </div>
+      </div>
+      <!-- Secret dropdown (hidden by default) -->
+      <div class="secret-dropdown" id="secretDropdown">
+        <p>Secret Unlocked! Welcome to the hidden section.</p>
+        <!-- Customize this content as needed -->
+        <a href="#">Hidden Link 1</a>
+        <a href="#">Hidden Link 2</a>
       </div>
 
       <div class="social-icons">
@@ -59,12 +71,6 @@
             <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
           </div>
         </div>
-
-        <!-- Secret Dropdown -->
-        <div class="dropdown-content" id="secretDropdown" style="display: none;">
-          <a href="#">🔒 Secret Project</a>
-        </div>
-
       </nav>
     </aside>
 
@@ -88,22 +94,5 @@
   </div>
 
   <script src="dropdown.js"></script>
-  <script>
-    let sequence = [];
-    const correctCode = ['A', 'B', '1', 'C', '3'];
-
-    function toggleKeypad() {
-      document.querySelector('.logo-container').classList.toggle('flipped');
-    }
-
-    function pressKey(key) {
-      sequence.push(key);
-      if (sequence.length > correctCode.length) sequence.shift();
-
-      if (JSON.stringify(sequence) === JSON.stringify(correctCode)) {
-        document.getElementById('secretDropdown').style.display = 'block';
-      }
-    }
-  </script>
 </body>
 </html>
