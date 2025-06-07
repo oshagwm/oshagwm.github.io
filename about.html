@@ -9,7 +9,21 @@
 <body>
   <div class="container">
     <aside class="sidebar">
-      <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+
+      <!-- Flipping Logo + Keypad -->
+      <div class="logo-container" onclick="toggleKeypad()">
+        <img src="images/logo.png" alt="Profile Picture" class="profile-pic front" />
+        <div class="keypad back">
+          <button onclick="pressKey('A')">A</button>
+          <button onclick="pressKey('1')">1</button>
+          <button onclick="pressKey('B')">B</button>
+          <button onclick="pressKey('2')">2</button>
+          <button onclick="pressKey('C')">C</button>
+          <button onclick="pressKey('3')">3</button>
+          <button onclick="pressKey('*')">*</button>
+          <button onclick="pressKey('#')">#</button>
+        </div>
+      </div>
 
       <div class="social-icons">
         <a href="https://www.facebook.com/william.oshaughnessy.940" target="_blank" title="Facebook">
@@ -45,6 +59,12 @@
             <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
           </div>
         </div>
+
+        <!-- Hidden Secret Dropdown -->
+        <div class="dropdown-content" id="secretDropdown" style="display: none;">
+          <a href="#">🔒 Secret Project</a>
+        </div>
+
       </nav>
     </aside>
 
@@ -66,5 +86,22 @@
   </div>
 
   <script src="dropdown.js"></script>
+  <script>
+    let sequence = [];
+    const correctCode = ['A', 'B', '1', 'C', '3'];
+
+    function toggleKeypad() {
+      document.querySelector('.logo-container').classList.toggle('flipped');
+    }
+
+    function pressKey(key) {
+      sequence.push(key);
+      if (sequence.length > correctCode.length) sequence.shift();
+
+      if (JSON.stringify(sequence) === JSON.stringify(correctCode)) {
+        document.getElementById('secretDropdown').style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
