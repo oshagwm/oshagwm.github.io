@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chocolate Milk Rankings</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tier {
+      margin-bottom: 2rem;
+    }
+    .tier h3 {
+      color: #333;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+    .tier ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .tier li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .tier img {
+      width: 60px;
+      height: auto;
+      margin-right: 15px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+      <h1>William O'Shaughnessy</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="resume.html">Resume</a>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown('projectsDropdown')">Projects ▾</button>
+          <div class="dropdown-content" id="projectsDropdown">
+            <a href="cyber.html">Cybersecurity</a>
+            <a href="projects.html">Photoshop</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown('interestsDropdown')">Interests ▾</button>
+          <div class="dropdown-content show" id="interestsDropdown">
+            <a href="snowden.html">Snowden</a>
+            <a href="chocolatemilk.html" style="color: #f97316; font-weight: bold;">Chocolate Milk Ranking</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section>
+        <h2>Chocolate Milk Rankings</h2>
+
+        <div class="tier S">
+          <h3>S Tier</h3>
+          <ul>
+            <li><img src="images/stewarts.png" alt="Stewarts"><strong>Stewarts (Super Rich):</strong> ABSOLUTE PERFECT</li>
+          </ul>
+        </div>
+
+        <div class="tier Aplus">
+          <h3>A+ Tier</h3>
+          <ul>
+            <li><img src="images/byrne_dairy.png" alt="Byrne Dairy"><strong>Byrne Dairy:</strong> Very Solid; everything you want in a chocolate milk</li>
+          </ul>
+        </div>
+
+        <div class="tier A">
+          <h3>A Tier</h3>
+          <ul>
+            <li><img src="images/king_dairy.png" alt="King Dairy"><strong>King Dairy:</strong> Very Solid, everything you want in a chocolate milk</li>
+            <li><img src="images/trumoo.png" alt="Trumoo"><strong>Trumoo:</strong> Very Solid, everything you want in a chocolate milk; could use little more chocolate.</li>
+            <li><img src="images/colins_farm_and_creamery.png" alt="Colins"><strong>Colins:</strong> Very Solid, everything you want in a chocolate milk; could use little more chocolate. Bonus: Local</li>
+          </ul>
+        </div>
+
+        <div class="tier Aminus">
+          <h3>A− Tier</h3>
+          <ul>
+            <li><img src="images/nesquik.png" alt="Nesquik"><strong>Nesquik (Bottle):</strong> Very Solid, everything you want in a chocolate milk; bottle is subjective.</li>
+          </ul>
+        </div>
+
+        <div class="tier Bplus">
+          <h3>B+ Tier</h3>
+          <ul>
+            <li><img src="images/promised_land.png" alt="Promised Land"><strong>Promised Land:</strong> Very Solid, dark chocolatey (not necessarily my thing) but still very good</li>
+          </ul>
+        </div>
+
+        <div class="tier B">
+          <h3>B Tier</h3>
+          <ul>
+            <li><img src="images/fairlife.png" alt="Fairlife"><strong>Fairlife:</strong> Very good for a lactose-free option.</li>
+          </ul>
+        </div>
+
+        <div class="tier Bminus">
+          <h3>B− Tier</h3>
+          <ul>
+            <li><img src="images/friendly_farms_aldi.png" alt="Friendly Farms"><strong>Friendly Farms:</strong> Kind of weak, does its purpose as chocolate milk but flavor goes away for a bit.</li>
+            <li><img src="images/yoohoo.png" alt="YooHoo"><strong>YooHoo:</strong> Not advertised as chocolate milk: <em>CHOCOLATE DRINK</em>. Does its purpose as a chocolate milk, perfect after a hard day's work.</li>
+          </ul>
+        </div>
+
+        <div class="tier F">
+          <h3>F Tier</h3>
+          <ul>
+            <li><img src="images/almond_breeze.png" alt="Almond Breeze"><strong>Almond Breeze:</strong> Hate Crime to society. Should be called Chocolate Almond Water.</li>
+          </ul>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="dropdown.js"></script>
+</body>
+</html>
