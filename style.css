@@ -47,7 +47,7 @@ body {
 /* Active Link Highlighting */
 .sidebar nav a.active,
 .dropdown-content a.active {
-  color: #f97316;
+  color: #4F7B9E;
   font-weight: bold;
 }
 
@@ -252,7 +252,7 @@ body {
 }
 
 .key:hover {
-  background: #f97316; /* Matches your orange theme */
+  background: #4F7B9E; /* Matches your orange theme */
 }
 
 .secret-dropdown {
@@ -263,7 +263,7 @@ body {
   margin-top: 10px;
   border-radius: 6px; /* Matches .project */
   text-align: center;
-  border-left: 4px solid #f97316; /* Orange accent */
+  border-left: 4px solid #4F7B9E; /* Orange accent */
 }
 
 .secret-dropdown.show {
@@ -277,7 +277,7 @@ body {
 
 .secret-dropdown a {
   margin: 5px 0;
-  color: #f97316;
+  color: #4F7B9E;
   text-decoration: none;
   display: block;
 }
