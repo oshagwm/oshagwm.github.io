@@ -1,105 +1,161 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hate Tolerance Scale</title>
+    <title>Tolerance Scale</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .scale {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .section {
-            width: 80%;
+            background-color: #f8f9fa;
             padding: 20px;
-            margin: 10px;
-            border: 2px solid black;
-            border-radius: 10px;
         }
-        .section img {
-            width: 50px;
-            height: 50px;
+        .person-card {
+            margin-bottom: 20px;
             cursor: pointer;
-            margin: 10px;
-            border-radius: 50%;
         }
-        .popup {
+        .category {
+            font-weight: bold;
+            color: #0d6efd;
+        }
+        .description {
             display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border: 2px solid black;
-            box-shadow: 0px 0px 10px gray;
+            margin-top: 10px;
+            font-style: italic;
         }
-        .close {
-            cursor: pointer;
-            color: red;
+        .show-description {
             display: block;
-            text-align: right;
-            font-size: 20px;
+        }
+        .filter-group {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Hate Tolerance Scale</h1>
-    <div class="scale">
-        <div class="section" id="tolerate">
-            <h2>Dislike But Tolerate</h2>
-            <img src="images/georgewbush.png" alt="George W. Bush" onclick="showPopup('George W. Bush', 'Initiated interventionist wars, signed the Patriot Act, and mismanaged the response to Hurricane Katrina.')">
-            <img src="images/billclinton.png" alt="Bill Clinton" onclick="showPopup('Bill Clinton', 'Expanded NATO, allowed foreign exploitation of America, and has been linked to suspicious activities.')">
-            <img src="images/berniesanders.png" alt="Bernie Sanders" onclick="showPopup('Bernie Sanders', 'A staunch socialist who advocates for extreme economic policies.')">
-            <img src="images/johnmccain.png" alt="John McCain" onclick="showPopup('John McCain', 'Denied the repeal of Obamacare, not a war hero, and a weak link within the Washington establishment.')">
+    <div class="container">
+        <h1 class="text-center mb-4">Tolerance Scale</h1>
+        
+        <!-- Filter and Search Bar -->
+        <div class="filter-group">
+            <div class="input-group mb-3">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search by name...">
+                <button class="btn btn-outline-secondary" type="button" id="searchBtn">Search</button>
+            </div>
+            <div class="mb-3">
+                <label for="categoryFilter" class="form-label">Filter by Category</label>
+                <select class="form-select" id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="Extreme Opposition">Extreme Opposition</option>
+                    <option value="Hostile but Non-Violent Opposition">Hostile but Non-Violent Opposition</option>
+                    <option value="Intense Aversion, Avoidance Preferred">Intense Aversion, Avoidance Preferred</option>
+                    <option value="Strong Dislike but Can Coexist">Strong Dislike but Can Coexist</option>
+                    <option value="Dislike But Tolerate">Dislike But Tolerate</option>
+                    <option value="Neutral">Neutral</option>
+                    <option value="Like and Accept">Like and Accept</option>
+                    <option value="Appreciate and Coexist Comfortably">Appreciate and Coexist Comfortably</option>
+                    <option value="Strong Affinity, Engagement Preferred">Strong Affinity, Engagement Preferred</option>
+                    <option value="Friendly and Cooperative Support">Friendly and Cooperative Support</option>
+                    <option value="Complete Agreement">Complete Agreement</option>
+                </select>
+            </div>
         </div>
-        <div class="section" id="coexist">
-            <h2>Strong Dislike but Can Coexist</h2>
-            <img src="images/nikkihaley.png" alt="Nikki Haley" onclick="showPopup('Nikki Haley', 'Warhawk with interventionist foreign policy views.')">
-            <img src="images/mitchmcconnell.png" alt="Mitch McConnell" onclick="showPopup('Mitch McConnell', 'Longtime Washington insider; a warhawk and a pillar of the political establishment.')">
-            <img src="images/barackobama.png" alt="Barack Obama" onclick="showPopup('Barack Obama', 'Expanded government surveillance, implemented Obamacare, and has been accused of fostering racial division.')">
-            <img src="images/joebiden.png" alt="Joe Biden" onclick="showPopup('Joe Biden', 'Weaponized political power against opponents, botched the Afghanistan withdrawal, and took credit for reinstating Trump’s insulin cap after removing it.')">
-            <img src="images/aoc.png" alt="AOC" onclick="showPopup('AOC', 'Arguably the most insufferable member of Congress, known for radical policies and grandstanding.')">
-        </div>
-        <div class="section" id="avoidance">
-            <h2>Intense Aversion, Avoidance Preferred</h2>
-            <img src="images/mikepompeo.png" alt="Mike Pompeo" onclick="showPopup('Mike Pompeo', 'Deep State loyalist; allegedly plotted the assassination of Julian Assange.')">
-            <img src="images/hillaryclinton.png" alt="Hillary Clinton" onclick="showPopup('Hillary Clinton', 'Strong advocate of big government and suspected of various controversies, including alleged criminal activity.')">
-            <img src="images/lizcheney.png" alt="Liz Cheney" onclick="showPopup('Liz Cheney', 'War criminal; aligned with Kamala Harris.')">
-            <img src="images/dickcheney.png" alt="Dick Cheney" onclick="showPopup('Dick Cheney', 'War criminal; supported Kamala Harris.')">
-        </div>
-        <div class="section" id="hostile">
-            <h2>Hostile but Non-Violent Opposition</h2>
-            <img src="images/kathyhochul.png" alt="Kathy Hochul" onclick="showPopup('Kathy Hochul', 'Arguably New York’s worst governor; indifferent to rising crime, lacks integrity, and governs without conviction.')">
-            <img src="images/kathleenkennedy.png" alt="Kathleen Kennedy" onclick="showPopup('Kathleen Kennedy', 'Reshaped Star Wars in her vision, misunderstood its core themes, and has publicly disrespected George Lucas.')">
-            <img src="images/gavinnewsom.png" alt="Gavin Newsom" onclick="showPopup('Gavin Newsom', 'Sucked up to President Xi Jinping by cleaning poop and homeless, hypocritical during COVID, and basically legalized pedophilia in California.')">
-        </div>
-        <div class="section" id="extreme">
-            <h2>Extreme Opposition</h2>
-            <img src="images/michaelhayden.png" alt="Michael Hayden" onclick="showPopup('Michael Hayden', 'Architect of mass surveillance and the Patriot Act; continues to defend its legacy without remorse.')">
-            <img src="images/jamesclapper.png" alt="James Clapper" onclick="showPopup('James Clapper', 'Expanded mass surveillance, misled Congress, and remains a staunch defender of the Patriot Act.')">
-        </div>
+        
+        <!-- List of People -->
+        <div id="peopleList" class="row"></div>
     </div>
-    <div id="popup" class="popup">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <h2 id="popupTitle"></h2>
-        <p id="popupText"></p>
-    </div>
+
+    <!-- Bootstrap JS and Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function showPopup(title, text) {
-            document.getElementById("popupTitle").innerText = title;
-            document.getElementById("popupText").innerText = text;
-            document.getElementById("popup").style.display = "block";
+        // Initialize people array with specified people and descriptions (stored in localStorage)
+        let people = JSON.parse(localStorage.getItem('toleranceScale')) || [
+            { name: 'Michael Hayden', image: 'images/michaelhayden.png', category: 'Extreme Opposition', description: 'Architect of mass surveillance and the Patriot Act; continues to defend its legacy without remorse.' },
+            { name: 'James Clapper', image: 'images/jamesclapper.png', category: 'Extreme Opposition', description: 'Expanded mass surveillance, misled Congress, and remains a staunch defender of the Patriot Act.' },
+            { name: 'Kathy Hochul', image: 'images/kathyhochul.png', category: 'Hostile but Non-Violent Opposition', description: 'Arguably New York’s worst governor; indifferent to rising crime, lacks integrity, and governs without conviction.' },
+            { name: 'Kathleen Kennedy', image: 'images/kathleen_kennedy.png', category: 'Hostile but Non-Violent Opposition', description: 'Reshaped Star Wars in her vision, misunderstood its core themes, and has publicly disrespected George Lucas.' },
+            { name: 'Gavin Newsom', image: 'images/gavinnewsom.png', category: 'Hostile but Non-Violent Opposition', description: 'Sucked up to President Xi Jinping by cleaning poop and homeless, hypocritical during COVID, and basically legalized pedophilia in California.' },
+            { name: 'Mike Pompeo', image: 'images/mikepompeo.png', category: 'Intense Aversion, Avoidance Preferred', description: 'Deep State loyalist; allegedly plotted the assassination of Julian Assange.' },
+            { name: 'Hillary Clinton', image: 'images/hillaryclinton.png', category: 'Intense Aversion, Avoidance Preferred', description: 'Strong advocate of big government and suspected of various controversies, including alleged criminal activity.' },
+            { name: 'Liz Cheney', image: 'images/lizcheney.png', category: 'Intense Aversion, Avoidance Preferred', description: 'War criminal; aligned with Kamala Harris.' },
+            { name: 'Dick Cheney', image: 'images/dickcheney.png', category: 'Intense Aversion, Avoidance Preferred', description: 'War criminal; supported Kamala Harris.' },
+            { name: 'Nikki Haley', image: 'images/nikkihaley.png', category: 'Strong Dislike but Can Coexist', description: 'Warhawk with interventionist foreign policy views.' },
+            { name: 'Mitch McConnell', image: 'images/mitchmcconnell.png', category: 'Strong Dislike but Can Coexist', description: 'Longtime Washington insider; a warhawk and a pillar of the political establishment.' },
+            { name: 'Barack Obama', image: 'images/barackobama.png', category: 'Strong Dislike but Can Coexist', description: 'Expanded government surveillance, implemented Obamacare, and has been accused of fostering racial division.' },
+            { name: 'Joe Biden', image: 'images/joebiden.png', category: 'Strong Dislike but Can Coexist', description: 'Weaponized political power against opponents, botched the Afghanistan withdrawal, and took credit for reinstating Trump’s insulin cap after removing it.' },
+            { name: 'Alexandria Ocasio-Cortez', image: 'images/aoc.png', category: 'Strong Dislike but Can Coexist', description: 'Arguably the most insufferable member of Congress, known for radical policies and grandstanding.' },
+            { name: 'George W. Bush', image: 'images/georgewbush.png', category: 'Dislike But Tolerate', description: 'Initiated interventionist wars, signed the Patriot Act, and mismanaged the response to Hurricane Katrina.' },
+            { name: 'Bill Clinton', image: 'images/billclinton.png', category: 'Dislike But Tolerate', description: 'Expanded NATO, allowed foreign exploitation of America, and has been linked to suspicious activities.' },
+            { name: 'Bernie Sanders', image: 'images/berniesanders.png', category: 'Dislike But Tolerate', description: 'A staunch socialist who advocates for extreme economic policies.' },
+            { name: 'John McCain', image: 'images/johnmccain.png', category: 'Dislike But Tolerate', description: 'Denied the repeal of Obamacare, not a war hero, and a weak link within the Washington establishment.' },
+            { name: 'Ryan Stiles', image: 'images/ryanstiles.png', category: 'Like and Accept', description: 'Very funny comedian, basis for my own humor, gets a little too liberal sometimes.' },
+            { name: 'Donald Trump', image: 'images/donaldtrump.png', category: 'Like and Accept', description: 'First President in lifetime to try to get us back to Constitution, hasn\'t released Epstein list, simps a little too hard for Israel.' },
+            { name: 'Vivek Ramaswamy', image: 'images/vivekramaswamy.png', category: 'Appreciate and Coexist Comfortably', description: 'Seeker of truth, follower of our Constitution, too supportive of visas.' },
+            { name: 'Tulsi Gabbard', image: 'images/tulsigabbard.png', category: 'Appreciate and Coexist Comfortably', description: 'Military hero and intelligence director that actually follows the Constitution.' },
+            { name: 'Tucker Carlson', image: 'images/tuckercarlson.png', category: 'Strong Affinity, Engagement Preferred', description: 'Follower of truth, questions everything, and one of the last.' },
+            { name: 'Glenn Greenwald', image: 'images/glenngreenwald.png', category: 'Strong Affinity, Engagement Preferred', description: 'Follower of truth, questions everything, and one of the last.' },
+            { name: 'Edward Snowden', image: 'images/edwardsnowden.png', category: 'Strong Affinity, Engagement Preferred', description: 'Whistleblower who exposed government overreach, dedicated to truth and privacy.' },
+            { name: 'Zach Top', image: 'images/zachtop.png', category: 'Friendly and Cooperative Support', description: 'Single-handedly bringing 90s country back, real and genuine.' },
+            { name: 'Joe Rogan', image: 'images/joerogan.png', category: 'Friendly and Cooperative Support', description: 'Very funny comedian, basis for my own humor, seeker of truth, doesn\'t belong to a party.' },
+            { name: 'Toby Keith', image: 'images/tobykeith.png', category: 'Complete Agreement', description: 'Saved me, taught me about patriotism and truth.' }
+        ];
+
+        // Function to render people list
+        function renderPeople(filteredPeople = people) {
+            const list = document.getElementById('peopleList');
+            list.innerHTML = '';
+            if (filteredPeople.length === 0) {
+                list.innerHTML = '<p class="text-center">No people found.</p>';
+                return;
+            }
+            filteredPeople.forEach((person, index) => {
+                const card = `
+                    <div class="col-md-4 person-card" data-index="${index}">
+                        <div class="card">
+                            <img src="${person.image}" class="card-img-top" alt="${person.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${person.name}</h5>
+                                <div class="category">${person.category}</div>
+                                <div class="description" id="description-${index}">${person.description}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                list.innerHTML += card;
+            });
+
+            // Add click event listeners to each card for description toggle
+            document.querySelectorAll('.person-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const index = card.getAttribute('data-index');
+                    const description = document.getElementById(`description-${index}`);
+                    description.classList.toggle('show-description');
+                });
+            });
         }
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
+
+        // Initial render
+        renderPeople();
+
+        // Search and filter functionality
+        function applyFilters() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const selectedCategory = document.getElementById('categoryFilter').value;
+            let filtered = people;
+            if (query) {
+                filtered = filtered.filter(person => person.name.toLowerCase().includes(query));
+            }
+            if (selectedCategory) {
+                filtered = filtered.filter(person => person.category === selectedCategory);
+            }
+            renderPeople(filtered);
         }
+
+        // Search button event listener
+        document.getElementById('searchBtn').addEventListener('click', applyFilters);
+
+        // Category filter event listener
+        document.getElementById('categoryFilter').addEventListener('change', applyFilters);
     </script>
 </body>
 </html>
