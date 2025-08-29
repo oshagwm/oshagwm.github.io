@@ -30,6 +30,22 @@
         .filter-group {
             margin-bottom: 20px;
         }
+        .card-img-right {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .card-content {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .card-text {
+            flex-grow: 1;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -112,11 +128,13 @@
                 const card = `
                     <div class="col-md-4 person-card" data-index="${index}">
                         <div class="card">
-                            <img src="${person.image}" class="card-img-top" alt="${person.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${person.name}</h5>
-                                <div class="category">${person.category}</div>
-                                <div class="description" id="description-${index}">${person.description}</div>
+                            <div class="card-content">
+                                <div class="card-text">
+                                    <h5 class="card-title">${person.name}</h5>
+                                    <div class="category">${person.category}</div>
+                                    <div class="description" id="description-${index}">${person.description}</div>
+                                </div>
+                                <img src="${person.image}" class="card-img-right" alt="${person.name}">
                             </div>
                         </div>
                     </div>
