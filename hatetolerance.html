@@ -15,6 +15,19 @@
             margin-bottom: 20px;
             cursor: pointer;
         }
+        .card-body {
+            display: flex;
+            align-items: flex-start;
+        }
+        .card-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .card-content {
+            flex: 1;
+        }
         .category {
             font-weight: bold;
             color: #0d6efd;
@@ -112,11 +125,13 @@
                 const card = `
                     <div class="col-md-4 person-card" data-index="${index}">
                         <div class="card">
-                            <img src="${person.image}" class="card-img-top" alt="${person.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${person.name}</h5>
-                                <div class="category">${person.category}</div>
-                                <div class="description" id="description-${index}">${person.description}</div>
+                            <div class="card-body d-flex">
+                                <img src="${person.image}" class="card-img" alt="${person.name}">
+                                <div class="card-content">
+                                    <h5 class="card-title">${person.name}</h5>
+                                    <div class="category">${person.category}</div>
+                                    <div class="description" id="description-${index}">${person.description}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
