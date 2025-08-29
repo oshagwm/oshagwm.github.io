@@ -15,19 +15,6 @@
             margin-bottom: 20px;
             cursor: pointer;
         }
-        .card-body {
-            display: flex;
-            align-items: flex-start;
-        }
-        .card-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-        .card-content {
-            flex: 1;
-        }
         .category {
             font-weight: bold;
             color: #0d6efd;
@@ -83,34 +70,34 @@
     <script>
         // Initialize people array with specified people and descriptions (stored in localStorage)
         let people = JSON.parse(localStorage.getItem('toleranceScale')) || [
-            { name: 'Michael Hayden', image: 'images/michaelhayden.png', category: 'Extreme Opposition', description: 'Architect of mass surveillance and the Patriot Act; continues to defend its legacy without remorse.' },
-            { name: 'James Clapper', image: 'images/jamesclapper.png', category: 'Extreme Opposition', description: 'Expanded mass surveillance, misled Congress, and remains a staunch defender of the Patriot Act.' },
-            { name: 'Kathy Hochul', image: 'images/kathyhochul.png', category: 'Hostile but Non-Violent Opposition', description: 'Arguably New York’s worst governor; indifferent to rising crime, lacks integrity, and governs without conviction.' },
-            { name: 'Kathleen Kennedy', image: 'images/kathleenkennedy.png', category: 'Hostile but Non-Violent Opposition', description: 'Reshaped Star Wars in her vision, misunderstood its core themes, and has publicly disrespected George Lucas.' },
-            { name: 'Gavin Newsom', image: 'images/gavinnewsom.png', category: 'Hostile but Non-Violent Opposition', description: 'Sucked up to President Xi Jinping by cleaning poop and homeless, hypocritical during COVID, and basically legalized pedophilia in California.' },
-            { name: 'Mike Pompeo', image: 'images/mikepompeo.png', category: 'Intense Aversion, Avoidance Preferred', description: 'Deep State loyalist; allegedly plotted the assassination of Julian Assange.' },
-            { name: 'Hillary Clinton', image: 'images/hillaryclinton.png', category: 'Intense Aversion, Avoidance Preferred', description: 'Strong advocate of big government and suspected of various controversies, including alleged criminal activity.' },
-            { name: 'Liz Cheney', image: 'images/lizcheney.png', category: 'Intense Aversion, Avoidance Preferred', description: 'War criminal; aligned with Kamala Harris.' },
-            { name: 'Dick Cheney', image: 'images/dickcheney.png', category: 'Intense Aversion, Avoidance Preferred', description: 'War criminal; supported Kamala Harris.' },
-            { name: 'Nikki Haley', image: 'images/nikkihaley.png', category: 'Strong Dislike but Can Coexist', description: 'Warhawk with interventionist foreign policy views.' },
-            { name: 'Mitch McConnell', image: 'images/mitchmcconnell.png', category: 'Strong Dislike but Can Coexist', description: 'Longtime Washington insider; a warhawk and a pillar of the political establishment.' },
-            { name: 'Barack Obama', image: 'images/barackobama.png', category: 'Strong Dislike but Can Coexist', description: 'Expanded government surveillance, implemented Obamacare, and has been accused of fostering racial division.' },
-            { name: 'Joe Biden', image: 'images/joebiden.png', category: 'Strong Dislike but Can Coexist', description: 'Weaponized political power against opponents, botched the Afghanistan withdrawal, and took credit for reinstating Trump’s insulin cap after removing it.' },
-            { name: 'Alexandria Ocasio-Cortez', image: 'images/aoc.png', category: 'Strong Dislike but Can Coexist', description: 'Arguably the most insufferable member of Congress, known for radical policies and grandstanding.' },
-            { name: 'George W. Bush', image: 'images/georgewbush.png', category: 'Dislike But Tolerate', description: 'Initiated interventionist wars, signed the Patriot Act, and mismanaged the response to Hurricane Katrina.' },
-            { name: 'Bill Clinton', image: 'images/billclinton.png', category: 'Dislike But Tolerate', description: 'Expanded NATO, allowed foreign exploitation of America, and has been linked to suspicious activities.' },
-            { name: 'Bernie Sanders', image: 'images/berniesanders.png', category: 'Dislike But Tolerate', description: 'A staunch socialist who advocates for extreme economic policies.' },
-            { name: 'John McCain', image: 'images/johnmccain.png', category: 'Dislike But Tolerate', description: 'Denied the repeal of Obamacare, not a war hero, and a weak link within the Washington establishment.' },
-            { name: 'Ryan Stiles', image: 'images/ryanstiles.png', category: 'Like and Accept', description: 'Very funny comedian, basis for my own humor, gets a little too liberal sometimes.' },
-            { name: 'Donald Trump', image: 'images/donaldtrump.png', category: 'Like and Accept', description: 'First President in lifetime to try to get us back to Constitution, hasn\'t released Epstein list, simps a little too hard for Israel.' },
-            { name: 'Vivek Ramaswamy', image: 'images/vivekramaswamy.png', category: 'Appreciate and Coexist Comfortably', description: 'Seeker of truth, follower of our Constitution, too supportive of visas.' },
-            { name: 'Tulsi Gabbard', image: 'images/tulsigabbard.png', category: 'Appreciate and Coexist Comfortably', description: 'Military hero and intelligence director that actually follows the Constitution.' },
-            { name: 'Tucker Carlson', image: 'images/tuckercarlson.png', category: 'Strong Affinity, Engagement Preferred', description: 'Follower of truth, questions everything, and one of the last.' },
-            { name: 'Glenn Greenwald', image: 'images/glenngreenwald.png', category: 'Strong Affinity, Engagement Preferred', description: 'Follower of truth, questions everything, and one of the last.' },
-            { name: 'Edward Snowden', image: 'images/edwardsnowden.png', category: 'Strong Affinity, Engagement Preferred', description: 'Whistleblower who exposed government overreach, dedicated to truth and privacy.' },
-            { name: 'Zach Top', image: 'images/zachtop.png', category: 'Friendly and Cooperative Support', description: 'Single-handedly bringing 90s country back, real and genuine.' },
-            { name: 'Joe Rogan', image: 'images/joerogan.png', category: 'Friendly and Cooperative Support', description: 'Very funny comedian, basis for my own humor, seeker of truth, doesn\'t belong to a party.' },
-            { name: 'Toby Keith', image: 'images/tobykeith.png', category: 'Complete Agreement', description: 'Saved me, taught me about patriotism and truth.' }
+            { name: 'Michael Hayden', image: 'images/michael_hayden.png', category: 'Extreme Opposition', description: 'Architect of mass surveillance and the Patriot Act; continues to defend its legacy without remorse.' },
+            { name: 'James Clapper', image: 'images/james_clapper.png', category: 'Extreme Opposition', description: 'Expanded mass surveillance, misled Congress, and remains a staunch defender of the Patriot Act.' },
+            { name: 'Kathy Hochul', image: 'images/kathy_hochul.png', category: 'Hostile but Non-Violent Opposition', description: 'Arguably New York’s worst governor; indifferent to rising crime, lacks integrity, and governs without conviction.' },
+            { name: 'Kathleen Kennedy', image: 'images/kathleen_kennedy.png', category: 'Hostile but Non-Violent Opposition', description: 'Reshaped Star Wars in her vision, misunderstood its core themes, and has publicly disrespected George Lucas.' },
+            { name: 'Gavin Newsom', image: 'images/gavin_newsom.png', category: 'Hostile but Non-Violent Opposition', description: 'Sucked up to President Xi Jinping by cleaning poop and homeless, hypocritical during COVID, and basically legalized pedophilia in California.' },
+            { name: 'Mike Pompeo', image: 'images/mike_pompeo.png', category: 'Intense Aversion, Avoidance Preferred', description: 'Deep State loyalist; allegedly plotted the assassination of Julian Assange.' },
+            { name: 'Hillary Clinton', image: 'images/hillary_clinton.png', category: 'Intense Aversion, Avoidance Preferred', description: 'Strong advocate of big government and suspected of various controversies, including alleged criminal activity.' },
+            { name: 'Liz Cheney', image: 'images/liz_cheney.png', category: 'Intense Aversion, Avoidance Preferred', description: 'War criminal; aligned with Kamala Harris.' },
+            { name: 'Dick Cheney', image: 'images/dick_cheney.png', category: 'Intense Aversion, Avoidance Preferred', description: 'War criminal; supported Kamala Harris.' },
+            { name: 'Nikki Haley', image: 'images/nikki_haley.png', category: 'Strong Dislike but Can Coexist', description: 'Warhawk with interventionist foreign policy views.' },
+            { name: 'Mitch McConnell', image: 'images/mitch_mcconnell.png', category: 'Strong Dislike but Can Coexist', description: 'Longtime Washington insider; a warhawk and a pillar of the political establishment.' },
+            { name: 'Barack Obama', image: 'images/barack_obama.png', category: 'Strong Dislike but Can Coexist', description: 'Expanded government surveillance, implemented Obamacare, and has been accused of fostering racial division.' },
+            { name: 'Joe Biden', image: 'images/joe_biden.png', category: 'Strong Dislike but Can Coexist', description: 'Weaponized political power against opponents, botched the Afghanistan withdrawal, and took credit for reinstating Trump’s insulin cap after removing it.' },
+            { name: 'Alexandria Ocasio-Cortez', image: 'images/alexandria_ocasio-cortez.png', category: 'Strong Dislike but Can Coexist', description: 'Arguably the most insufferable member of Congress, known for radical policies and grandstanding.' },
+            { name: 'George W. Bush', image: 'images/george_w_bush.png', category: 'Dislike But Tolerate', description: 'Initiated interventionist wars, signed the Patriot Act, and mismanaged the response to Hurricane Katrina.' },
+            { name: 'Bill Clinton', image: 'images/bill_clinton.png', category: 'Dislike But Tolerate', description: 'Expanded NATO, allowed foreign exploitation of America, and has been linked to suspicious activities.' },
+            { name: 'Bernie Sanders', image: 'images/bernie_sanders.png', category: 'Dislike But Tolerate', description: 'A staunch socialist who advocates for extreme economic policies.' },
+            { name: 'John McCain', image: 'images/john_mccain.png', category: 'Dislike But Tolerate', description: 'Denied the repeal of Obamacare, not a war hero, and a weak link within the Washington establishment.' },
+            { name: 'Ryan Stiles', image: 'images/ryan_stiles.png', category: 'Like and Accept', description: 'Very funny comedian, basis for my own humor, gets a little too liberal sometimes.' },
+            { name: 'Donald Trump', image: 'images/donald_trump.png', category: 'Like and Accept', description: 'First President in lifetime to try to get us back to Constitution, hasn\'t released Epstein list, simps a little too hard for Israel.' },
+            { name: 'Vivek Ramaswamy', image: 'images/vivek_ramaswamy.png', category: 'Appreciate and Coexist Comfortably', description: 'Seeker of truth, follower of our Constitution, too supportive of visas.' },
+            { name: 'Tulsi Gabbard', image: 'images/tulsi_gabbard.png', category: 'Appreciate and Coexist Comfortably', description: 'Military hero and intelligence director that actually follows the Constitution.' },
+            { name: 'Tucker Carlson', image: 'images/tucker_carlson.png', category: 'Strong Affinity, Engagement Preferred', description: 'Follower of truth, questions everything, and one of the last.' },
+            { name: 'Glenn Greenwald', image: 'images/glenn_greenwald.png', category: 'Strong Affinity, Engagement Preferred', description: 'Follower of truth, questions everything, and one of the last.' },
+            { name: 'Edward Snowden', image: 'images/edward_snowden.png', category: 'Strong Affinity, Engagement Preferred', description: 'Whistleblower who exposed government overreach, dedicated to truth and privacy.' },
+            { name: 'Zach Top', image: 'images/zach_top.png', category: 'Friendly and Cooperative Support', description: 'Single-handedly bringing 90s country back, real and genuine.' },
+            { name: 'Joe Rogan', image: 'images/joe_rogan.png', category: 'Friendly and Cooperative Support', description: 'Very funny comedian, basis for my own humor, seeker of truth, doesn\'t belong to a party.' },
+            { name: 'Toby Keith', image: 'images/toby_keith.png', category: 'Complete Agreement', description: 'Saved me, taught me about patriotism and truth.' }
         ];
 
         // Function to render people list
@@ -125,13 +112,11 @@
                 const card = `
                     <div class="col-md-4 person-card" data-index="${index}">
                         <div class="card">
-                            <div class="card-body d-flex">
-                                <img src="${person.image}" class="card-img" alt="${person.name}">
-                                <div class="card-content">
-                                    <h5 class="card-title">${person.name}</h5>
-                                    <div class="category">${person.category}</div>
-                                    <div class="description" id="description-${index}">${person.description}</div>
-                                </div>
+                            <img src="${person.image}" class="card-img-top" alt="${person.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${person.name}</h5>
+                                <div class="category">${person.category}</div>
+                                <div class="description" id="description-${index}">${person.description}</div>
                             </div>
                         </div>
                     </div>
