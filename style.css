@@ -1,3 +1,8 @@
+/* style.css */
+
+/* ================================================
+   Global / Reset
+   ================================================ */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -10,7 +15,9 @@ body {
   width: 100%;
 }
 
-/* Sidebar Styling */
+/* ================================================
+   Sidebar (Left Navigation)
+   ================================================ */
 .sidebar {
   background: linear-gradient(to bottom, #4f5c66, #1c1e20);
   color: white;
@@ -44,14 +51,14 @@ body {
   color: white;
 }
 
-/* Active Link Highlighting */
+/* Active / highlighted links */
 .sidebar nav a.active,
 .dropdown-content a.active {
   color: #4F7B9E;
   font-weight: bold;
 }
 
-/* Social Media Icons */
+/* Social icons */
 .social-icons {
   margin: 15px 0;
 }
@@ -67,7 +74,9 @@ body {
   transform: scale(1.1);
 }
 
-/* Main Content Styling */
+/* ================================================
+   Main Content Area
+   ================================================ */
 .content {
   flex-grow: 1;
   padding: 40px;
@@ -80,7 +89,7 @@ body {
   color: #555;
 }
 
-/* Project Card Styling */
+/* Project cards (used in Photoshop page etc.) */
 .project {
   background-color: #f8f8f8;
   padding: 15px 20px;
@@ -94,7 +103,7 @@ body {
   color: #333;
 }
 
-/* Before-After Slider */
+/* Before-After Slider (Photoshop projects) */
 .before-after-container {
   margin-top: 15px;
 }
@@ -130,7 +139,9 @@ body {
   cursor: pointer;
 }
 
-/* Dropdown (Click-to-Toggle) */
+/* ================================================
+   Dropdown Menus (Projects & Interests)
+   ================================================ */
 .dropdown {
   display: block;
   margin-top: 8px;
@@ -171,25 +182,6 @@ body {
   display: flex;
 }
 
-/* NEW: Make Interests dropdown always visible and sub-links grey by default */
-#interestsDropdown {
-  display: flex !important; /* Always show the content */
-}
-
-#interestsDropdown a {
-  color: #ccc; /* Grey by default for all sub-links */
-  padding: 6px 0;
-  text-decoration: none;
-  display: block;
-  transition: color 0.3s;
-}
-
-#interestsDropdown a:hover,
-#interestsDropdown a.active {
-  color: #4F7B9E; /* Blue on hover or active */
-}
-
-/* Existing dropdown-content links (for Projects) remain toggleable */
 .dropdown-content a {
   padding: 6px 0;
   color: #bbb;
@@ -202,12 +194,14 @@ body {
   color: white;
 }
 
-/* New Styles for Flip Card, Keypad, and Secret Dropdown */
+/* ================================================
+   Flip Card + Keypad + Secret Dropdown
+   ================================================ */
 .flip-card {
-  width: 120px; /* Matches .profile-pic size */
+  width: 120px;
   height: 120px;
   perspective: 1000px;
-  margin: 0 auto 10px; /* Matches .profile-pic margin */
+  margin: 0 auto 10px;
   cursor: pointer;
 }
 
@@ -229,7 +223,7 @@ body {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 50%; /* Matches .profile-pic circular shape */
+  border-radius: 50%;
 }
 
 .flip-card-front {
@@ -239,12 +233,12 @@ body {
 }
 
 .flip-card-front img.profile-pic {
-  margin: 0; /* Override .profile-pic margin */
+  margin: 0;
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
-  background: #2a2d30; /* Matches .dropdown-content background */
+  background: #2a2d30;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,7 +246,7 @@ body {
 
 .keypad {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2x4 grid */
+  grid-template-columns: repeat(2, 1fr);
   gap: 5px;
   padding: 10px;
   width: 100%;
@@ -261,7 +255,7 @@ body {
 }
 
 .key {
-  background: #4f5c66; /* Matches sidebar gradient start */
+  background: #4f5c66;
   color: white;
   border: none;
   border-radius: 5px;
@@ -271,18 +265,18 @@ body {
 }
 
 .key:hover {
-  background: #4F7B9E; /* Matches your orange theme */
+  background: #4F7B9E;
 }
 
 .secret-dropdown {
   display: none;
-  background: #2a2d30; /* Matches .dropdown-content */
+  background: #2a2d30;
   color: white;
   padding: 10px;
   margin-top: 10px;
-  border-radius: 6px; /* Matches .project */
+  border-radius: 6px;
   text-align: center;
-  border-left: 4px solid #4F7B9E; /* Orange accent */
+  border-left: 4px solid #4F7B9E;
 }
 
 .secret-dropdown.show {
@@ -305,7 +299,9 @@ body {
   color: white;
 }
 
-/* Responsive Enhancements (Optional) */
+/* ================================================
+   Responsive Adjustments
+   ================================================ */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
