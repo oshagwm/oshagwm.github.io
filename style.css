@@ -171,6 +171,25 @@ body {
   display: flex;
 }
 
+/* NEW: Make Interests dropdown always visible and sub-links grey by default */
+#interestsDropdown {
+  display: flex !important; /* Always show the content */
+}
+
+#interestsDropdown a {
+  color: #ccc; /* Grey by default for all sub-links */
+  padding: 6px 0;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+
+#interestsDropdown a:hover,
+#interestsDropdown a.active {
+  color: #4F7B9E; /* Blue on hover or active */
+}
+
+/* Existing dropdown-content links (for Projects) remain toggleable */
 .dropdown-content a {
   padding: 6px 0;
   color: #bbb;
