@@ -1,33 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Reviews</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #reviews {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .review {
+      background: #f9f9f9;
+      border-left: 5px solid #4F7B9E;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .stars {
+      font-size: 1.8rem;
+      color: #FFD700; /* gold stars */
+      margin-bottom: 0.8rem;
+    }
+    .review p {
+      font-size: 1.1rem;
+      margin: 0 0 1rem;
+    }
+    .review strong {
+      display: block;
+      font-style: italic;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
+  <div id="reviews">
+    <h2>Reviews</h2>
 
-<section id="reviews" style="text-align:center; margin:3rem auto; max-width:800px;">
-  <h2>Reviews</h2>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>Student’s enthusiasm is a genuine asset in the classroom. Always engaged and enjoyable to teach.</p>
+      <strong>11th & 12th Grade Resource Teacher</strong>
+    </div>
 
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <p>Student’s enthusiasm is a genuine asset in the classroom. Always engaged and enjoyable to teach.</p>
-    <strong>11th & 12th Grade Resource Teacher</strong>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>Student is a pleasure to have in class — brings great energy every day.</p>
+      <strong>11th & 12th Grade Resource Teacher</strong>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>Dangerously funny. Keeps morale high while still getting the job done.</p>
+      <strong>John Hussey<br>Network Administrator, Revere Copper</strong>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>He’s alright, I guess.</p>
+      <strong>Reilly O'Shaughnessy<br>Audit Associate, KPMG<br>Sister by Birth</strong>
+    </div>
   </div>
-
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <p>Dangerously funny. Keeps morale high while still getting the job done.</p>
-    <strong>John Hussey<br>Network Administrator, Revere Copper</strong>
-  </div>
-
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <p>He’s alright, I guess.</p>
-    <strong>Reilly O'Shaughnessy<br>Audit Associate, KPMG<br>Sister by Birth</strong>
-  </div>
-</section>
-
 </body>
 </html>
