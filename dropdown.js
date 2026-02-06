@@ -1,28 +1,33 @@
 // dropdown.js
 
-// -----------------------------
-// Dropdown Menu Toggle Logic
-// -----------------------------
-function toggleDropdown(id) {
-  const allDropdowns = document.querySelectorAll('.dropdown-content');
+// ================================================
+// Dropdown Menu Logic (Projects & Interests)
+// ================================================
 
-  // Close all dropdowns except the target one
-  allDropdowns.forEach(dropdown => {
+/**
+ * Toggles the visibility of a dropdown by ID and closes all others.
+ * @param {string} id - The ID of the dropdown-content to toggle
+ */
+function toggleDropdown(id) {
+  const dropdowns = document.querySelectorAll('.dropdown-content');
+
+  // Close all dropdowns except the target
+  dropdowns.forEach(dropdown => {
     if (dropdown.id !== id) {
       dropdown.classList.remove('show');
     }
   });
 
   // Toggle the requested dropdown
-  const targetDropdown = document.getElementById(id);
-  if (targetDropdown) {
-    targetDropdown.classList.toggle('show');
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.toggle('show');
   }
 }
 
-// Close all dropdowns when clicking outside any dropdown area
+// Close all dropdowns when clicking outside any dropdown
 window.addEventListener('click', (event) => {
-  // If the click was not inside any .dropdown element, close everything
+  // Only close if click was not inside a .dropdown element
   if (!event.target.closest('.dropdown')) {
     document.querySelectorAll('.dropdown-content').forEach(dropdown => {
       dropdown.classList.remove('show');
@@ -30,31 +35,32 @@ window.addEventListener('click', (event) => {
   }
 });
 
-// -----------------------------
+// ================================================
 // Flip Card + Secret Keypad Logic
-// -----------------------------
+// ================================================
+
 document.addEventListener('DOMContentLoaded', () => {
   const flipCard = document.querySelector('.flip-card');
   const keys = document.querySelectorAll('.key');
   const secretDropdown = document.getElementById('secretDropdown');
 
-  // Secret sequence to unlock hidden content
+  // The secret code to unlock the hidden dropdown
   const correctSequence = ['A', 'B', '1', 'C', '3'];
-  let inputSequence = [];
+  let currentSequence = [];
 
-  // Toggle flip card when clicking the logo area (ignore keypad clicks)
+  // Toggle flip on logo click (skip if clicking a key)
   if (flipCard) {
-    flipCard.addEventListener('click', (e) => {
-      // Prevent flip if user clicked a keypad button
-      if (e.target.classList.contains('key')) {
+    flipCard.addEventListener('click', (event) => {
+      // Prevent flip if the target is a keypad button
+      if (event.target.classList.contains('key')) {
         return;
       }
 
       flipCard.classList.toggle('flipped');
 
-      // When flipping back to front, reset sequence and hide secret
+      // Reset sequence and hide secret when flipping back to front
       if (!flipCard.classList.contains('flipped')) {
-        inputSequence = [];
+        currentSequence = [];
         if (secretDropdown) {
           secretDropdown.classList.remove('show');
         }
@@ -62,26 +68,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle keypad button presses
+  // Handle each keypad button press
   keys.forEach(key => {
     key.addEventListener('click', () => {
       const value = key.getAttribute('data-value');
       if (value) {
-        inputSequence.push(value);
+        currentSequence.push(value);
 
-        // Check if we've reached the required length
-        if (inputSequence.length === correctSequence.length) {
-          const entered = inputSequence.join('');
-          const correct = correctSequence.join('');
+        // Check if sequence is complete
+        if (currentSequence.length === correctSequence.length) {
+          const entered = currentSequence.join('');
+          const expected = correctSequence.join('');
 
-          if (entered === correct) {
-            // Success → show secret dropdown
+          if (entered === expected) {
+            // Success: show secret dropdown
             if (secretDropdown) {
               secretDropdown.classList.add('show');
             }
           } else {
-            // Wrong sequence → reset
-            inputSequence = [];
+            // Wrong: reset
+            currentSequence = [];
           }
         }
       }
