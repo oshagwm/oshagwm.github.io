@@ -22,7 +22,7 @@
     }
     .stars {
       font-size: 1.8rem;
-      color: #FFD700; /* gold stars */
+      color: #FFD700;
       margin-bottom: 0.8rem;
     }
     .review p {
@@ -37,32 +37,103 @@
   </style>
 </head>
 <body>
-  <div id="reviews">
-    <h2>Reviews</h2>
+  <div class="container">
+    <aside class="sidebar">
+      <!-- Flip card for logo and keypad -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/logo.png" alt="Profile Picture" class="profile-pic" />
+          </div>
+          <div class="flip-card-back">
+            <div class="keypad">
+              <button class="key" data-value="A">A</button>
+              <button class="key" data-value="1">1</button>
+              <button class="key" data-value="B">B</button>
+              <button class="key" data-value="2">2</button>
+              <button class="key" data-value="C">C</button>
+              <button class="key" data-value="3">3</button>
+              <button class="key" data-value="*">*</button>
+              <button class="key" data-value="#">#</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Secret dropdown -->
+      <div class="secret-dropdown" id="secretDropdown">
+        <p>Secret Unlocked! Welcome to the hidden section.</p>
+        <a href="snowden.html">Snowden</a>
+        <a href="#">Hidden Link 2</a>
+      </div>
 
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>Student’s enthusiasm is a genuine asset in the classroom. Always engaged and enjoyable to teach.</p>
-      <strong>11th & 12th Grade Resource Teacher</strong>
-    </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/william.oshaughnessy.940" target="_blank" title="Facebook">
+          <img src="images/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/billiam31/" target="_blank" title="Instagram">
+          <img src="images/instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.linkedin.com/in/william-o-shaughnessy-831636366/" target="_blank" title="LinkedIn">
+          <img src="images/ln.png" alt="LinkedIn" />
+        </a>
+      </div>
 
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>Student is a pleasure to have in class — brings great energy every day.</p>
-      <strong>11th & 12th Grade Resource Teacher</strong>
-    </div>
+      <h1>William O'Shaughnessy</h1>
 
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>Dangerously funny. Keeps morale high while still getting the job done.</p>
-      <strong>John Hussey<br>Network Administrator, Revere Copper</strong>
-    </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="resume.html">Resume</a>
 
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>He’s alright, I guess.</p>
-      <strong>Reilly O'Shaughnessy<br>Audit Associate, KPMG<br>Sister by Birth</strong>
-    </div>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown('projectsDropdown')">Projects ▾</button>
+          <div class="dropdown-content" id="projectsDropdown">
+            <a href="cyber.html">Cybersecurity</a>
+            <a href="projects.html">Photoshop</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Interests ▾</button>
+          <div class="dropdown-content" id="interestsDropdown">
+            <a href="reviews.html" style="color: #4F7B9E;">Reviews</a> <!-- Active blue here -->
+            <a href="chocolatemilk.html">Chocolate Milk Ranking</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section id="reviews">
+        <h2>Reviews</h2>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>Student’s enthusiasm is a genuine asset in the classroom. Always engaged and enjoyable to teach.</p>
+          <strong>11th & 12th Grade Resource Teacher</strong>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>Student is a pleasure to have in class — brings great energy every day.</p>
+          <strong>11th & 12th Grade Resource Teacher</strong>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>Dangerously funny. Keeps morale high while still getting the job done.</p>
+          <strong>John Hussey<br>Network Administrator, Revere Copper</strong>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>He’s alright, I guess.</p>
+          <strong>Reilly O'Shaughnessy<br>Audit Associate, KPMG<br>Sister by Birth</strong>
+        </div>
+      </section>
+    </main>
   </div>
+
+  <script src="dropdown.js"></script>
 </body>
 </html>
